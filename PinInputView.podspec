@@ -1,3 +1,4 @@
+# coding: utf-8
 #
 # Be sure to run `pod lib lint PinInputView.podspec' to ensure this is a
 # valid spec before submitting.
@@ -39,6 +40,7 @@ This component is really simple to use. You can easily customize the fonts and c
   s.social_media_url = 'https://twitter.com/jlnquere'
 
   s.ios.deployment_target = '9.0'
+  s.tvos.deployment_target = '10.0'
 
   s.source_files = 'PinInputView/Classes/**/*'
   s.frameworks = 'UIKit'
