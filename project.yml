@@ -14,6 +14,7 @@ options:
   tabWidth: 2
   createIntermediateGroups: true
   findCarthageFrameworks: true
+  bundleIdPrefix: com.streamlayer
 
 settings:
   base:
