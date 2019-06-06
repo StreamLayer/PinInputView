@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+
 final class DigitView: UIView {
     
     private let label = UILabel()
@@ -14,7 +15,6 @@ final class DigitView: UIView {
     
     private var labelAndBottomLineVerticalConstraint:NSLayoutConstraint?
     private var bottomLineHeightConstraint:NSLayoutConstraint?
-
     
     var textColor:UIColor = .black {
         didSet {
@@ -63,19 +63,25 @@ final class DigitView: UIView {
         
         self.addSubview(label)
         self.addSubview(bottomLine)
-        
+      
+        bottomLineHeightConstraint = NSLayoutConstraint(item: bottomLine, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: bottomLineHeight)
+      
         bottomLine.backgroundColor = self.textColor
-        bottomLine.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets.zero,
-                                                excludingEdge: .top)
-        bottomLineHeightConstraint =  bottomLine.autoSetDimension(.height, toSize: bottomLineHeight)
-        
-        label.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets.zero, excludingEdge: .bottom)
-        
-        
-        labelAndBottomLineVerticalConstraint = label.autoPinEdge(.bottom,
-                                                                 to: .top,
-                                                                 of: bottomLine,
-                                                                 withOffset: -self.verticalSpaceBetweenLabelAndBottomLine)
+        bottomLine.addConstraints([
+          NSLayoutConstraint(item: bottomLine, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 0),
+          NSLayoutConstraint(item: bottomLine, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0),
+          NSLayoutConstraint(item: bottomLine, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: 0),
+          bottomLineHeightConstraint!
+        ])
+      
+        labelAndBottomLineVerticalConstraint = NSLayoutConstraint(item: label, attribute: .bottom, relatedBy: .equal, toItem: bottomLine, attribute: .top, multiplier: 1, constant: -self.verticalSpaceBetweenLabelAndBottomLine)
+
+        label.addConstraints([
+          NSLayoutConstraint(item: label, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 0),
+          NSLayoutConstraint(item: label, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0),
+          NSLayoutConstraint(item: label, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: 0),
+          labelAndBottomLineVerticalConstraint!
+        ])
         
         label.font = font
         label.adjustsFontSizeToFitWidth = true
