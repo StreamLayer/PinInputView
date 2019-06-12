@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,10 +15,10 @@
 /* Begin PBXFileReference section */
 		03B431802A42098E25C27C5D8E289EC8 /* DigitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitView.swift; sourceTree = "<group>"; };
 		1B75571EA23138C565D731F2E7EA26B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C66E5BDAC5290B59A75DA96A19FDE05 /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
+		6C66E5BDAC5290B59A75DA96A19FDE05 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		7705F84679F35DDF7A011C413AD4783A /* PinInputView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PinInputView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5D55CE0965F2C2FE82D712C5154BBB /* PinInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinInputView.swift; sourceTree = "<group>"; };
-		C69A121270B17BF1BC7C295F06A401A2 /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
+		C69A121270B17BF1BC7C295F06A401A2 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		ED774CC0C8E0D16F1C8EEF67EF33C215 /* PinInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PinInputView.h; sourceTree = "<group>"; };
 		FD52D553EA687F74AED04C8919D64160 /* base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = base.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,7 +219,11 @@
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = PinInputView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.streamlayer.PinInputView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -243,7 +247,11 @@
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = PinInputView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.streamlayer.PinInputView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
